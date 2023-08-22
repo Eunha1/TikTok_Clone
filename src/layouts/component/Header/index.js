@@ -11,15 +11,16 @@ import {
    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './Header.module.scss';
-
-import Button from '@/Components/Button';
+import { Link } from 'react-router-dom';
+import Button from '@/components/Button/Button';
 import images from '@/assets/images';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import Menu from '@/Components/Popper/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '@/Components/Icons';
-import Image from '@/Components/Images';
-import Search from '../Search';
+import Menu from '@/components/Popper/Menu/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '@/components/Icons/icons';
+import Image from '@/components/Images/Images';
+import Search from '../Search/Search';
+import routesConfig from '@/config/routes';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -88,7 +89,9 @@ function Header() {
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
             <div className={cx('logo')}>
-               <img src={images.logo} alt="TikTok" />
+               <Link to={routesConfig.home}>
+                  <img src={images.logo} alt="TikTok" />
+               </Link>
             </div>
             <Search />
             <div className={cx('action')}>
