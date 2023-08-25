@@ -1,0 +1,36 @@
+.sidebar-item {
+   display: flex;
+   align-items: center;
+   font-size: 1.8rem;
+   font-weight: 700;
+   padding: 8px;
+   border-radius: 4px;
+   transition: background-color ease-in-out 200ms;
+
+   &.active {
+      color: var(--primary);
+      .sidebar-icon {
+         display: none;
+      }
+      .sidebar-activeicon {
+         display: flex;
+      }
+   }
+
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.1);
+   }
+}
+
+.sidebar-icon,
+.sidebar-activeicon {
+   display: flex;
+}
+
+.sidebar-title {
+   margin-left: 15px;
+}
+
+.sidebar-activeicon {
+   display: none;
+}

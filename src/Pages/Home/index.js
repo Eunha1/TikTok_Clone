@@ -1,4 +1,6 @@
-function Home() {
-   return <h1>Home</h1>;
+import Home from '@/components/Home/Home';
+
+function HomePage() {
+   return <Home />;
 }
-export default Home;
+export default HomePage;
