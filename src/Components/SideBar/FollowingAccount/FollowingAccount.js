@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
-import styles from './SuggestedAccount.module.scss';
+import styles from './FollowingAccount.module.scss';
 
 import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccount({ label }) {
+function FollowingAccount({ label }) {
    return (
       <div className={cx('wrapper')}>
          <p className={cx('label')}>{label}</p>
@@ -15,4 +15,4 @@ function SuggestedAccount({ label }) {
    );
 }
 
-export default SuggestedAccount;
+export default FollowingAccount;

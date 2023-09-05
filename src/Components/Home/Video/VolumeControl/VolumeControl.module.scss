@@ -1,0 +1,58 @@
+.voice-control-contain {
+   position: absolute;
+   right: 12px;
+   bottom: 26px;
+   &:hover {
+      .volume-control-content {
+         display: block;
+      }
+   }
+}
+.volume-control-content {
+   width: 24px;
+   height: 64px;
+   margin: 8px 7px 0px;
+   display: none;
+   position: relative;
+   cursor: initial;
+   background: rgba(22, 24, 35, 0.34);
+   border-radius: 32px;
+}
+.volume-control-progress {
+   width: 2px;
+   height: 48px;
+   background-color: rgba(255, 255, 255, 0.34);
+   position: absolute;
+   left: 11px;
+   top: 8px;
+   bottom: 8px;
+   cursor: pointer;
+   border-radius: 4px;
+}
+.volume-control-circle {
+   width: 12px;
+   height: 12px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 12px;
+   position: absolute;
+   left: 6px;
+   bottom: 8px;
+   cursor: pointer;
+   z-index: 1;
+}
+.volume-control-bar {
+   width: 2px;
+   height: 48px;
+   background-color: rgb(255, 255, 255);
+   position: absolute;
+   left: 11px;
+   bottom: 8px;
+   cursor: pointer;
+   transform-origin: center bottom;
+   border-radius: 4px;
+}
+.sound-icon {
+   padding: 8px;
+   width: 40px;
+   height: 40px;
+}

@@ -5,6 +5,8 @@ const routes = {
    upload: '/upload',
    search: '/search',
    live: '/live',
+   download: '/download',
+   explore: '/explore',
 };
 
 export default routes;

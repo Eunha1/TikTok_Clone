@@ -9,8 +9,11 @@ import {
    HomeActiveIcon,
    UserGroupActiveIcon,
    LiveActiveIcon,
+   ExploreIcon,
+   ExploreActiveIcon,
 } from '@/components/Icons/icons';
-import SuggestedAccount from '@/components/SuggestedAccount/SuggestedAccount';
+import FollowingAccount from './FollowingAccount/FollowingAccount';
+import Information from './Information';
 const cx = classNames.bind(styles);
 
 function SideBar() {
@@ -24,10 +27,11 @@ function SideBar() {
                icon={<UserGroupIcon />}
                activeIcon={<UserGroupActiveIcon />}
             />
+            <MenuItem title="Explore" to={routes.explore} icon={<ExploreIcon />} activeIcon={<ExploreActiveIcon />} />
             <MenuItem title="Live" to={routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
          </Menu>
-         <SuggestedAccount label="Suggested account" />
-         <SuggestedAccount label="Following account" />
+         <FollowingAccount label="Following account" />
+         <Information />
       </aside>
    );
 }

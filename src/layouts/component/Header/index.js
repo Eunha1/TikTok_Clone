@@ -1,5 +1,12 @@
 import classNames from 'classnames/bind';
+import styles from './Header.module.scss';
+
+import HeadlessTippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
    faEllipsisVertical,
    faEarthAsia,
@@ -10,17 +17,23 @@ import {
    faGear,
    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
-import Button from '@/components/Button/Button';
+
 import images from '@/assets/images';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
-import Menu from '@/components/Popper/Menu/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '@/components/Icons/icons';
-import Image from '@/components/Images/Images';
 import Search from '../Search/Search';
 import routesConfig from '@/config/routes';
+import Image from '@/components/Images/Images';
+import Button from '@/components/Button/Button';
+import Menu from '@/components/Popper/Menu/Menu';
+import {
+   DownloadIcon,
+   InboxIcon,
+   MessageIcon,
+   PCLightIcon,
+   RightArrowIcon,
+   TopArrowIcon,
+   UploadIcon,
+} from '@/components/Icons/icons';
+
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -56,6 +69,7 @@ const MENU_ITEMS = [
 ];
 
 const currentUser = true;
+
 function Header() {
    const handelMenuChange = (menuIcon) => {
       console.log(menuIcon);
@@ -97,21 +111,57 @@ function Header() {
             <div className={cx('action')}>
                {currentUser ? (
                   <>
-                     <Tippy trigger="click" content="Upload Video">
-                        <button className={cx('action-btn')}>
+                     <Link to={routesConfig.upload}>
+                        <div className={cx('upload-icon')}>
                            <UploadIcon />
-                        </button>
-                     </Tippy>
+                           <span className={cx('upload-text')}>Upload</span>
+                        </div>
+                     </Link>
+                     <div>
+                        <HeadlessTippy
+                           interactive
+                           delay={[300, 1000]}
+                           placement="bottom"
+                           render={(attrs) => (
+                              <div
+                                 className={cx('download-popup')}
+                                 style={{ backgroundColor: 'rgb(255, 255, 255)', left: '-42px' }}
+                                 tabIndex="-1"
+                                 {...attrs}
+                              >
+                                 <TopArrowIcon className={cx('top-arrow')} />
+                                 <div className={cx('download-container')}>
+                                    <PCLightIcon className={cx('pc-light-icon')} />
+                                    <p className={cx('popup-title')}>Ứng dụng TikTok dành cho máy tính</p>
+                                    <Button primary className={cx('download-button')}>
+                                       {' '}
+                                       Tải về{' '}
+                                    </Button>
+                                    <Link to={routesConfig.download}>
+                                       <p className={cx('popup-tip')}>
+                                          Thay vào đó , tải ứng dụng di động về
+                                          <RightArrowIcon className={cx('right-arrow')} />
+                                       </p>
+                                    </Link>
+                                 </div>
+                              </div>
+                           )}
+                        >
+                           <div className={cx('action-btn')}>
+                              <DownloadIcon />
+                           </div>
+                        </HeadlessTippy>
+                     </div>
                      <Tippy trigger="click" content="Message">
-                        <button className={cx('action-btn')}>
+                        <div className={cx('action-btn')}>
                            <MessageIcon />
-                        </button>
+                        </div>
                      </Tippy>
                      <Tippy trigger="click" content="Inbox">
-                        <button className={cx('action-btn')}>
+                        <div className={cx('action-btn')}>
                            <InboxIcon />
                            <span className={cx('badge')}>12</span>
-                        </button>
+                        </div>
                      </Tippy>
                   </>
                ) : (
