@@ -1,8 +1,33 @@
 .info-content {
    margin-right: 114px;
 }
+.author-title {
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 24px;
+   letter-spacing: -0.028px;
+   display: inline-block;
+   margin-right: 4px;
+}
+.author-name {
+   font-weight: 400;
+   font-size: 14px;
+   letter-spacing: 0.093px;
+   display: inline-block;
+   line-height: 28px;
+}
 .button {
    position: absolute;
-   top: 30px;
-   right: 0;
+   top: 40px;
+   right: 0px;
+}
+.description-wrapper {
+   display: flex;
+   position: relative;
+}
+.description-content {
+   width: 90%;
+}
+.tag-name {
+   color: rgba(43, 93, 185, 1);
 }

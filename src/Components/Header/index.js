@@ -19,10 +19,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import images from '@/assets/images';
-import Search from '../Search/Search';
+import Search from './Search';
 import routesConfig from '@/config/routes';
-import Image from '@/components/Images/Images';
-import Button from '@/components/Button/Button';
+import Image from '@/components/Images';
+import Button from '@/components/Button';
 import Menu from '@/components/Popper/Menu/Menu';
 import {
    DownloadIcon,

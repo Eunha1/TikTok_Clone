@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './DownloadPopUp.module.scss';
 import { Link } from 'react-router-dom';
 import { CloseIcon, QRCodeWrapper } from '../Icons/icons';
-import Image from '../Images/Images';
+import Image from '../Images';
 import routerConfig from '@/config/routes';
 const cx = classNames.bind(styles);
 

@@ -17,6 +17,7 @@ function VideoControl(props, ref) {
          (minutes < 10 ? '0' : '') + minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
       return formattedTime;
    };
+
    useEffect(() => {
       const circle = seekCircle.current;
       const progress = seekProgress.current;

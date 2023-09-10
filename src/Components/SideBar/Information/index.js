@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Information.module.scss';
-import Image from '@/components/Images/Images';
+import Image from '@/components/Images';
 import { EffectIcon } from '@/components/Icons/icons';
 
 const cx = classNames.bind(styles);

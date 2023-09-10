@@ -12,6 +12,7 @@ function Button({
    rounded = false,
    small = false,
    large = false,
+   outline_2 = false,
    children,
    leftIcon,
    rightIcon,
@@ -42,6 +43,7 @@ function Button({
    const classes = cx('wrapper', {
       primary,
       outline,
+      outline_2,
       text,
       disable,
       rounded,

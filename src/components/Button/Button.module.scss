@@ -52,6 +52,15 @@
       background-color: rgba(254, 44, 84, 0.06);
    }
 }
+.outline_2 {
+   color: var(--black);
+   border-color: currentColor;
+
+   &:hover {
+      border-color: currentColor;
+      background-color: rgba(245, 245, 245, 1);
+   }
+}
 .primary {
    color: var(--white);
    background-color: var(--primary);

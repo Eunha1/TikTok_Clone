@@ -3,24 +3,50 @@
    flex-direction: column;
    justify-content: flex-end;
 }
-.button-react {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   background: none;
-   cursor: pointer;
+.share-container {
+   box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+   position: absolute;
+   transform: translateY(8px);
+   z-index: 2;
+   border-radius: 8px;
+   background-color: rgb(255, 255, 255);
+   background: rgb(255, 255, 255);
+   bottom: calc(100% + 12px);
+   padding-right: 4px;
+   left: -45px;
+   opacity: 1;
 }
-
-.span-react {
+.bottom-arrow-icon {
+   display: block;
+   width: 24px;
+   height: 8px;
+   position: absolute;
+   bottom: -8px;
+   transform: rotate(180deg);
+   left: 36px;
+}
+.share-wrapper {
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 21px;
+   letter-spacing: 0.03px;
+   width: 280px;
+   padding: 8px 0px;
+   max-height: 448px;
+   overflow: auto;
+}
+.share-link {
    display: flex;
-   justify-content: center;
    align-items: center;
-   border-radius: 50%;
-   transition: all 200ms ease-in-out 0s;
-   width: 48px;
-   height: 48px;
-   background-color: rgba(22, 24, 35, 0.06);
-   margin-top: 8px;
-   margin-bottom: 6px;
+   padding: 11px 16px;
+   margin: 0px 3px 0px 4px;
+   position: relative;
+}
+.share-more {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0px 16px;
+   position: relative;
+   margin: 0px 4px;
 }

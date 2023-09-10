@@ -1,8 +1,9 @@
 .information-container {
+   border-top: 1px solid #e3e3e4;
    position: relative;
    padding-top: 16px;
    padding-left: 8px;
-   width: 250px;
+   max-width: 300px;
 }
 .create-effect {
    padding-right: 8px;
@@ -17,6 +18,7 @@
    justify-content: center;
 }
 .effect-image {
+   width: 250px;
    height: 52px;
    border-radius: 8px;
 }

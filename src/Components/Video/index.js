@@ -5,9 +5,8 @@ import { useState, useRef } from 'react';
 import { MoreIcon, PauseIcon, PlayIcon } from '@/components/Icons/icons';
 import VolumeControl from './VolumeControl';
 import VideoControl from './VideoControl';
-import SummerRain from '@/Video/SummerRain.mp4';
 const cx = classNames.bind(styles);
-function Video() {
+function Video_2({ src }) {
    const [isPlay, setIsPlay] = useState(false);
    const videoRef = useRef();
    const handlePlay = () => {
@@ -21,7 +20,7 @@ function Video() {
 
    return (
       <div className={cx('video-main')}>
-         <video id="video-player" ref={videoRef} src={SummerRain} className={cx('video')} loop />
+         <video ref={videoRef} src={src} className={cx('video')} loop />
          <MoreIcon className={cx('more-icon')} />
          <div className={cx('play-icon-contain')} onClick={handlePlay}>
             {isPlay === false ? <PauseIcon /> : <PlayIcon />}
@@ -32,4 +31,4 @@ function Video() {
    );
 }
 
-export default Video;
+export default Video_2;
