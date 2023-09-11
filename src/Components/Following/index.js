@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Image from '@/components/Images';
 import Button from '@/components/Button';
+import Video from '@/components/Video/Video';
 const cx = classNames.bind(styles);
 function Following() {
    const [data, setData] = useState([]);
@@ -23,14 +24,7 @@ function Following() {
                   <Link to={`/@${result.nickname}`} target="_blank" className={cx('following-card')}>
                      <div className={cx('suggested-follower')}>
                         <Image className={cx('poster')} src={result.popular_video.thumb_url} />
-                        <div className={cx('thumbnail-container')}>
-                           <video
-                              playsInline
-                              preload="auto"
-                              src={result.popular_video.file_url}
-                              className={cx('video')}
-                           />
-                        </div>
+                        <Video className={cx('thumbnail-container')} src={result.popular_video.file_url} />
                      </div>
                      <div className={cx('info')}>
                         <Image className={cx('avatar')} src={result.avatar} />

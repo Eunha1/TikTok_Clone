@@ -33,3 +33,12 @@
    display: flex;
    margin-top: 10px;
 }
+.video-main {
+   position: relative;
+   box-sizing: border-box;
+   background-size: cover;
+   cursor: pointer;
+   margin-right: 30px;
+   width: 320px;
+   height: 520px;
+}

@@ -7,7 +7,9 @@ import Image from '../Images';
 import { BlackMoreIcon, FollowingIcon, LockIcon, SecondPauseIcon, WhiteShareIcon } from '@/components/Icons/icons';
 import SummerRain from '@/Video/SummerRain.mp4';
 import { Link } from 'react-router-dom';
+import Video from '@/components/Video/Video';
 const cx = classNames.bind(styles);
+
 function Profile() {
    return (
       <div className={cx('profile-container')}>
@@ -74,9 +76,7 @@ function Profile() {
                                  src="https://files.fullstack.edu.vn/f8-tiktok/videos/834-6371c6436f86b.jpg"
                                  className={cx('image')}
                               />
-                              <div className={cx('video-content')}>
-                                 <video playsInline src={SummerRain} className={cx('video')} />
-                              </div>
+                              <Video className={cx('video-content')} src={SummerRain} />
                            </div>
                            <div className={cx('video-views')}>
                               <SecondPauseIcon />
@@ -85,7 +85,7 @@ function Profile() {
                         </Link>
                         <div className={cx('video-label')}>
                            <div className={cx('video-hastag')}>
-                              <span style={{ display: 'inline-block' }}>#Gfriend</span>
+                              <span style={{ display: 'inline-block', color: 'rgba(43, 93, 185, 1)' }}>#Gfriend</span>
                            </div>
                         </div>
                      </div>
