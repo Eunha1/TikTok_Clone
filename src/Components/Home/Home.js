@@ -5,7 +5,8 @@ import Image from '@/components/Images';
 import Video from '@/components/Video/Video';
 import Reaction from './Reaction';
 import Info from './Info';
-
+import { Link } from 'react-router-dom';
+import { routesConfig } from '@/config';
 const cx = classNames.bind(styles);
 
 function Home() {
@@ -19,7 +20,9 @@ function Home() {
       <div className={cx('wrapper')}>
          {data.map((result) => (
             <div className={cx('container')} key={result.id}>
-               <Image className={cx('avatar')} src={result.user.avatar} alt=""></Image>
+               <Link to={routesConfig.profileLink(result.user.nickname)}>
+                  <Image className={cx('avatar')} src={result.user.avatar} alt=""></Image>
+               </Link>
                <div className={cx('main-content')}>
                   <Info data={result} />
                   <div className={cx('video-content')}>
@@ -28,6 +31,8 @@ function Home() {
                         volumecontrol
                         videocontrol
                         playvideo
+                        VideoControlClasses={true}
+                        VolumeControlClasses={true}
                         more
                         className={cx('video-main')}
                      />

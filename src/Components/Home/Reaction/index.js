@@ -17,13 +17,17 @@ import {
    ShareMoreArrow,
 } from '@/components/Icons/icons';
 import IconReaction from './IconReaction';
+import { Link } from 'react-router-dom';
+import { routesConfig } from '@/config';
 
 const cx = classNames.bind(styles);
 function Reaction({ data }) {
    return (
       <div className={cx('reaction-element')}>
          <IconReaction icon={<HeartIcon />} activeIcon={<HeartActiveIcon />} reactionCount={data.likes_count} />
-         <IconReaction icon={<CommentIcon />} reactionCount={data.comments_count} />
+         <Link to={routesConfig.comment}>
+            <IconReaction icon={<CommentIcon />} reactionCount={data.comments_count} />
+         </Link>
          <IconReaction icon={<SaveIcon />} activeIcon={<SaveActiveIcon />} reactionCount={data.likes_count} />
          <Tippy
             interactive

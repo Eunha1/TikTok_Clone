@@ -9,6 +9,7 @@ import Live from '@/components/Live';
 import Profile from '@/components/Profile';
 import Upload from '@/components/Upload';
 import DownloadPopUp from '@/components/DownloadPopUp';
+import Comment from '@/components/Comment';
 // Route
 const publicRoutes = [
    { path: routesConfig.home, component: Home },
@@ -18,6 +19,7 @@ const publicRoutes = [
    { path: routesConfig.profile, component: Profile },
    { path: routesConfig.upload, component: Upload, layout: UploadLayout },
    { path: routesConfig.download, component: DownloadPopUp, layout: null },
+   { path: routesConfig.comment, component: Comment, layout: null },
 ];
 const privateRoutes = [];
 

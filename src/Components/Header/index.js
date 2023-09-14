@@ -29,9 +29,9 @@ import {
    InboxIcon,
    MessageIcon,
    PCLightIcon,
+   PlusIcon,
    RightArrowIcon,
    TopArrowIcon,
-   UploadIcon,
 } from '@/components/Icons/icons';
 
 const cx = classNames.bind(styles);
@@ -113,7 +113,7 @@ function Header() {
                   <>
                      <Link to={routesConfig.upload}>
                         <div className={cx('upload-icon')}>
-                           <UploadIcon />
+                           <PlusIcon />
                            <span className={cx('upload-text')}>Upload</span>
                         </div>
                      </Link>

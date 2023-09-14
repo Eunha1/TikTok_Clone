@@ -11,7 +11,6 @@ import { SearchIcon } from '@/components/Icons/icons';
 import { Wrapper as PopperWrapper } from '@/components/Popper';
 import AccountItem from '@/components/AccountItem';
 const cx = classNames.bind(styles);
-
 function Search() {
    const [searchResult, setSearchResult] = useState([]);
    const [searchValue, setSearchValue] = useState('');

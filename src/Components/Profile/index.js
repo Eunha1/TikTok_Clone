@@ -2,32 +2,44 @@ import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from 'react';
 import Button from '../Button';
 import Image from '../Images';
 import { BlackMoreIcon, FollowingIcon, LockIcon, SecondPauseIcon, WhiteShareIcon } from '@/components/Icons/icons';
-import SummerRain from '@/Video/SummerRain.mp4';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Video from '@/components/Video/Video';
 const cx = classNames.bind(styles);
 
 function Profile() {
+   const { nickname } = useParams();
+   const [data, setData] = useState({});
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const res = await fetch(`https://tiktok.fullstack.edu.vn/api/users/@${nickname}`);
+            const json = await res.json();
+            setData(json.data);
+         } catch (error) {
+            console.error(error);
+         }
+      };
+
+      fetchData();
+   }, [nickname]);
    return (
       <div className={cx('profile-container')}>
          <div className={cx('profile-content')}>
             <div className={cx('profile-header')}>
                <div className={cx('profile-info')}>
                   <div className={cx('info-avatar')}>
-                     <Image
-                        src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/45b329dac673c061b6e43a6cfaa3487a.jpeg?x-expires=1694397600&x-signature=1yIeYT966jnkqV2DuJkYxwypzwg%3D"
-                        className={cx('avatar')}
-                     />
+                     <Image src={data?.avatar} className={cx('avatar')} />
                   </div>
                   <div className={cx('title-container')}>
                      <h1 className={cx('nickname')}>
-                        GFriend Offical
-                        <FontAwesomeIcon icon={faCheckCircle} className={cx('check')} />
+                        {data.tick && <FontAwesomeIcon icon={faCheckCircle} className={cx('check')} />}
                      </h1>
-                     <h2 className={cx('name')}>Gfriend</h2>
+                     <h2 className={cx('name')}>{data.nickname}</h2>
                      <div className={cx('button-content')}>
                         <Button outline large className={cx('button')}>
                            Message
@@ -40,19 +52,19 @@ function Profile() {
                </div>
                <h3 className={cx('count-info')}>
                   <div className={cx('status')}>
-                     <strong style={{ fontWeight: 700 }}>1234</strong>
+                     <strong style={{ fontWeight: 700 }}>{data.followings_count}</strong>
                      <span className={cx('status-title')}>Following</span>
                   </div>
                   <div className={cx('status')}>
-                     <strong style={{ fontWeight: 700 }}>1234</strong>
+                     <strong style={{ fontWeight: 700 }}>{data.followers_count}</strong>
                      <span className={cx('status-title')}>Follower</span>
                   </div>
                   <div className={cx('status')}>
-                     <strong style={{ fontWeight: 700 }}>1234</strong>
+                     <strong style={{ fontWeight: 700 }}>{data.likes_count}</strong>
                      <span className={cx('status-title')}>likes</span>
                   </div>
                </h3>
-               <h2 className={cx('info-description')}>여자친구 GFRIEND 공식 채널</h2>
+               <h2 className={cx('info-description')}>{data.bio}</h2>
                <div className={cx('action-container')}>
                   <WhiteShareIcon />
                   <BlackMoreIcon />
@@ -69,26 +81,27 @@ function Profile() {
                </div>
                <div style={{ width: '100%' }}>
                   <div className={cx('video-item-list')}>
-                     <div className={cx('video-item')}>
-                        <Link to="/upload">
-                           <div className={cx('video-thumbnail')}>
-                              <Image
-                                 src="https://files.fullstack.edu.vn/f8-tiktok/videos/834-6371c6436f86b.jpg"
-                                 className={cx('image')}
-                              />
-                              <Video className={cx('video-content')} src={SummerRain} />
-                           </div>
-                           <div className={cx('video-views')}>
-                              <SecondPauseIcon />
-                              <strong className={cx('views')}>1.3M</strong>
-                           </div>
-                        </Link>
-                        <div className={cx('video-label')}>
-                           <div className={cx('video-hastag')}>
-                              <span style={{ display: 'inline-block', color: 'rgba(43, 93, 185, 1)' }}>#Gfriend</span>
+                     {data?.videos?.map((result) => (
+                        <div className={cx('video-item')} key={result.id}>
+                           <Link to="/upload">
+                              <div className={cx('video-thumbnail')}>
+                                 <Image className={cx('image')} src={result.thumb_url} />
+                                 <Video className={cx('video-content')} src={result.file_url} />
+                              </div>
+                              <div className={cx('video-views')}>
+                                 <SecondPauseIcon />
+                                 <strong className={cx('views')}>1.3M</strong>
+                              </div>
+                           </Link>
+                           <div className={cx('video-label')}>
+                              <div className={cx('video-hastag')}>
+                                 <span style={{ display: 'inline-block', color: 'rgba(43, 93, 185, 1)' }}>
+                                    {result.description}
+                                 </span>
+                              </div>
                            </div>
                         </div>
-                     </div>
+                     ))}
                   </div>
                </div>
             </div>

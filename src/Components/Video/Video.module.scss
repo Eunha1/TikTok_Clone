@@ -5,9 +5,136 @@
    object-fit: cover;
    border-radius: 8px;
 }
+
 .more-icon {
    position: absolute;
    top: 12px;
    right: 16px;
    margin-left: 10px;
+}
+.containerClass {
+   width: 100%;
+   height: 16px;
+   padding-inline: 12px;
+   position: absolute;
+   bottom: 12px;
+   cursor: initial;
+   display: flex;
+   &:hover {
+      opacity: 1;
+      .seekBarCircleClass {
+         display: block;
+      }
+      .seekBarProgressClass {
+         height: 4px;
+      }
+      .seekBarBoldClass {
+         height: 4px;
+      }
+   }
+}
+.seekBarContainClass {
+   width: 100%;
+   height: 16px;
+   flex: 1;
+   position: relative;
+}
+.seekBarProgressClass {
+   height: 2px;
+   width: 100%;
+   background-color: rgba(255, 255, 255, 0.34);
+   position: absolute;
+   left: 0px;
+   top: 50%;
+   transform: translateY(-50%);
+   cursor: pointer;
+}
+.seekBarCircleClass {
+   display: none;
+   width: 12px;
+   height: 12px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 12px;
+   position: absolute;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   cursor: pointer;
+   z-index: 1;
+}
+.seeBarBoldClass {
+   height: 2px;
+   width: 100%;
+   background-color: rgb(255, 255, 255);
+   position: absolute;
+   top: 50%;
+   cursor: pointer;
+   transform-origin: left center;
+}
+.timeContainClass {
+   flex: 0 0 64px;
+   max-width: 64px;
+   margin-inline-start: 8px;
+   font-size: 12px;
+   line-height: 16px;
+   color: rgb(255, 255, 255);
+   text-align: end;
+   white-space: nowrap;
+}
+.voiceControlContain {
+   position: absolute;
+   right: 12px;
+   bottom: 26px;
+   &:hover {
+      .volumeControlContent {
+         display: block;
+      }
+   }
+}
+.volumeControlContent {
+   width: 24px;
+   height: 64px;
+   margin: 8px 7px 0px;
+   display: none;
+   position: relative;
+   cursor: initial;
+   background: rgba(22, 24, 35, 0.34);
+   border-radius: 32px;
+}
+.volumeControlProgress {
+   width: 2px;
+   height: 48px;
+   background-color: rgba(255, 255, 255, 0.34);
+   position: absolute;
+   left: 11px;
+   top: 8px;
+   bottom: 8px;
+   cursor: pointer;
+   border-radius: 4px;
+}
+.volumeControlCircle {
+   width: 12px;
+   height: 12px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 12px;
+   position: absolute;
+   left: 6px;
+   bottom: 8px;
+   cursor: pointer;
+   z-index: 1;
+}
+.volumeControlBar {
+   width: 2px;
+   height: 48px;
+   background-color: rgb(255, 255, 255);
+   position: absolute;
+   left: 11px;
+   bottom: 8px;
+   cursor: pointer;
+   transform-origin: center bottom;
+   border-radius: 4px;
+}
+.soundIcon {
+   padding: 8px;
+   width: 40px;
+   height: 40px;
 }

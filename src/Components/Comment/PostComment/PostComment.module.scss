@@ -1,0 +1,57 @@
+.postComment-container {
+   flex: 0 0 auto;
+   background-color: rgb(18, 18, 18);
+   margin: 0px 30px;
+   padding: 21px 0px;
+}
+.postComment-content {
+   display: flex;
+   align-items: flex-end;
+}
+.layout-content {
+   box-sizing: border-box;
+   position: relative;
+   display: flex;
+   align-items: center;
+   border: 1px solid transparent;
+   border-radius: 8px;
+   background-color: rgba(255, 255, 255, 0.12);
+   padding: 0px 9px;
+   input {
+      width: 100%;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.03px;
+      background: transparent;
+      color: rgb(255, 255, 255);
+      caret-color: rgb(255, 59, 92);
+      appearance: textfield;
+   }
+   ::placeholder {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.6px;
+      color: rgba(255, 255, 255, 0.5);
+   }
+}
+.comment-icon {
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   background-color: transparent;
+   padding: 10px;
+}
+.post-button {
+   color: rgba(255, 255, 255, 0.34);
+   font-weight: 600;
+   letter-spacing: 0.093px;
+   cursor: default;
+   flex: 0 0 48px;
+   font-size: 16px;
+   line-height: 39px;
+   text-align: right;
+   margin-right: 4px;
+   margin-left: 8px;
+}

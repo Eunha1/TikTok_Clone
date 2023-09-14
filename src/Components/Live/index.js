@@ -1,5 +1,6 @@
+import Button from '../Button';
 function Live() {
-   return <h1>Live</h1>;
+   return <Button primary large />;
 }
 
 export default Live;

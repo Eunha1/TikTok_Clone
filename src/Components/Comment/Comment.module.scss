@@ -1,0 +1,217 @@
+.wrapper {
+   position: fixed;
+   inset: 0px;
+   background: rgb(18, 18, 18);
+   z-index: 1000;
+   display: flex;
+   flex-direction: row;
+}
+.video-container {
+   flex: 1 0 60%;
+   position: relative;
+   display: flex;
+   max-width: 100%;
+   background: rgb(0, 0, 0);
+   overflow: hidden;
+   justify-content: center;
+}
+.header-comment {
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   left: 0px;
+   right: 0px;
+   height: 85px;
+   z-index: 1;
+}
+.video-background {
+   position: absolute;
+   width: 10%;
+   height: 10%;
+   filter: blur(2px);
+   top: 50%;
+   left: 50%;
+   transform: scale(11);
+   opacity: 0.3;
+}
+.image {
+   width: 100%;
+   height: 100%;
+}
+.close-icon {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(84, 84, 84, 0.5);
+   border-radius: 50%;
+   cursor: pointer;
+   width: 40px;
+   height: 40px;
+   top: 20px;
+   z-index: 100;
+   left: 20px;
+   &:hover {
+      background: rgba(84, 84, 84, 0.2);
+   }
+}
+.video-content {
+   padding: 10px 0px;
+   width: 400px;
+   height: 100%;
+}
+
+// video control css
+.containerClass {
+   position: absolute;
+   display: flex;
+   bottom: 40px;
+   width: 400px;
+   height: 16px;
+   padding-inline: 12px;
+   cursor: initial;
+   &:hover {
+      opacity: 1;
+      .seekBarCircleClass {
+         display: block;
+      }
+      .seekBarProgressClass {
+         height: 6px;
+      }
+      .seekBarBoldClass {
+         height: 6px;
+      }
+   }
+}
+.seekBarContainClass {
+   flex: 1;
+   position: relative;
+   width: 100%;
+   height: 16px;
+}
+.seekBarProgressClass {
+   position: absolute;
+   left: 0px;
+   top: 50%;
+   background-color: rgba(255, 255, 255, 0.34);
+   height: 4px;
+   width: 100%;
+   transform: translateY(-50%);
+   cursor: pointer;
+}
+.seekBarCircleClass {
+   position: absolute;
+   display: none;
+   top: 50%;
+   width: 16px;
+   height: 16px;
+   border-radius: 16px;
+   background-color: rgb(255, 255, 255);
+   transform: translate(-50%, -50%);
+   cursor: pointer;
+   z-index: 1;
+}
+.seeBarBoldClass {
+   position: absolute;
+   top: 50%;
+   height: 4px;
+   width: 100%;
+   background-color: rgb(255, 255, 255);
+   cursor: pointer;
+   transform-origin: left center;
+}
+.timeContainClass {
+   flex: 0 0 64px;
+   max-width: 64px;
+   margin-inline-start: 8px;
+   font-size: 14px;
+   line-height: 16px;
+   color: rgb(255, 255, 255);
+   text-align: end;
+   white-space: nowrap;
+}
+// volume control css
+.voiceControlContain {
+   position: absolute;
+   right: 12px;
+   bottom: 30px;
+   &:hover {
+      .volumeControlContent {
+         display: block;
+      }
+   }
+}
+.volumeControlContent {
+   width: 28px;
+   height: 96px;
+   margin: 8px 6px;
+   display: none;
+   position: relative;
+   cursor: initial;
+   background: rgba(22, 24, 35, 0.34);
+   border-radius: 32px;
+}
+.volumeControlProgress {
+   width: 4px;
+   height: 80px;
+   background-color: rgba(255, 255, 255, 0.34);
+   position: absolute;
+   left: 11px;
+   top: 8px;
+   bottom: 8px;
+   cursor: pointer;
+   border-radius: 4px;
+}
+.volumeControlCircle {
+   position: absolute;
+   width: 16px;
+   height: 16px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 16px;
+   left: 6px;
+   bottom: 0px;
+   cursor: pointer;
+   z-index: 1;
+}
+.volumeControlBar {
+   width: 4px;
+   height: 80px;
+   background-color: rgb(255, 255, 255);
+   position: absolute;
+   left: 12px;
+   bottom: 8px;
+   cursor: pointer;
+   transform-origin: center bottom;
+   border-radius: 4px;
+}
+.soundIcon {
+   padding: 8px;
+   width: 40px;
+   height: 40px;
+}
+.commentList-wrapper {
+   flex: 0 0 40%;
+   width: 544px;
+   display: flex;
+   flex-direction: column;
+   padding: 24px 0px 0px;
+}
+.commentList-container {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   width: 100%;
+   box-sizing: border-box;
+   border-top: none;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+   overflow: hidden;
+}
+.commentList-content {
+   flex-grow: 1;
+   position: relative;
+   padding: 20px 32px 24px;
+   width: 100%;
+   overflow: hidden auto;
+}
