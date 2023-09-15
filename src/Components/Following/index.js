@@ -11,9 +11,16 @@ const cx = classNames.bind(styles);
 function Following() {
    const [data, setData] = useState([]);
    useEffect(() => {
-      fetch(`https://tiktok.fullstack.edu.vn/api/users/suggested?page=2&per_page=13`)
-         .then((res) => res.json())
-         .then((res) => setData(res.data));
+      const fetchData = async () => {
+         try {
+            fetch(`https://tiktok.fullstack.edu.vn/api/users/suggested?page=2&per_page=13`)
+               .then((res) => res.json())
+               .then((res) => setData(res.data));
+         } catch (error) {
+            throw console.error(error);
+         }
+      };
+      fetchData();
    }, []);
 
    return (

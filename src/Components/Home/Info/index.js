@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Button from '@/components/Button';
 import { MusicIcon } from '@/components/Icons/icons';
+import { routesConfig } from '@/config';
 const cx = classNames.bind(styles);
 function Info({ data }) {
    const [isFollowing, setIsFollowing] = useState(false);
    return (
       <div className={cx('info-content')}>
-         <h3 className={cx('author-title')}>{data.user.nickname}</h3>
-         <h4 className={cx('author-name')}>{data.user.first_name + data.user.last_name}</h4>
+         <Link to={routesConfig.profileLink(data.user.nickname)}>
+            <h3 className={cx('author-title')}>{data.user.nickname}</h3>
+            <h4 className={cx('author-name')}>{data.user.first_name + data.user.last_name}</h4>
+         </Link>
          <div onClick={() => setIsFollowing(!isFollowing)}>
             {isFollowing === false ? (
                <Button className={cx('button')} outline>

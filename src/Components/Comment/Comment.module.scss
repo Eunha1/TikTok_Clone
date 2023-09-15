@@ -56,6 +56,21 @@
       background: rgba(84, 84, 84, 0.2);
    }
 }
+.more-content {
+   position: absolute;
+   z-index: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(84, 84, 84, 0.5);
+   border-radius: 50%;
+   cursor: pointer;
+   width: 40px;
+   height: 40px;
+   top: calc(50% + 8px);
+   margin-top: -24px;
+   right: 20px;
+}
 .video-content {
    padding: 10px 0px;
    width: 400px;

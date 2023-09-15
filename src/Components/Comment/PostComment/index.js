@@ -17,7 +17,7 @@ function PostComment() {
                   </div>
                </div>
             </div>
-            <div className={cx('post-button')}>Posts</div>
+            <button className={cx('post-button')}>Posts</button>
          </div>
       </div>
    );

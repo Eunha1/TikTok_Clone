@@ -12,9 +12,16 @@ const cx = classNames.bind(styles);
 function Home() {
    const [data, setData] = useState([]);
    useEffect(() => {
-      fetch(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=22`)
-         .then((res) => res.json())
-         .then((res) => setData(res.data));
+      const fetchData = async () => {
+         try {
+            const result = await fetch(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=22`);
+            const json = await result.json();
+            setData(json.data);
+         } catch (error) {
+            throw console.error(error);
+         }
+      };
+      fetchData();
    }, []);
    return (
       <div className={cx('wrapper')}>
@@ -26,16 +33,18 @@ function Home() {
                <div className={cx('main-content')}>
                   <Info data={result} />
                   <div className={cx('video-content')}>
-                     <Video
-                        src={result.file_url}
-                        volumecontrol
-                        videocontrol
-                        playvideo
-                        VideoControlClasses={true}
-                        VolumeControlClasses={true}
-                        more
-                        className={cx('video-main')}
-                     />
+                     <Link to={routesConfig.commentLink(result)}>
+                        <Video
+                           src={result.file_url}
+                           volumecontrol
+                           videocontrol
+                           playvideo
+                           VideoControlClasses={true}
+                           VolumeControlClasses={true}
+                           more
+                           className={cx('video-main')}
+                        />
+                     </Link>
                      <Reaction data={result} />
                   </div>
                </div>

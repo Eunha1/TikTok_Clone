@@ -7,7 +7,8 @@ const routes = {
    live: '/live',
    download: '/download',
    explore: '/explore',
-   comment: '/comment',
+   comment: '/:nickname/video/:videoid',
+   commentLink: (content) => `/@${content.user.nickname}/video/${content.uuid}`,
 };
 
 export default routes;

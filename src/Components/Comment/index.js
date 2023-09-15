@@ -1,17 +1,31 @@
 import classNames from 'classnames/bind';
 import styles from './Comment.module.scss';
+import { Link, useParams } from 'react-router-dom';
+import { routesConfig } from '@/config';
+import { useState, useEffect } from 'react';
 import Video from '@/components/Video/Video';
-import SummerRain from '@/Video/SummerRain.mp4';
 import Search from './Search';
 import Image from '../Images';
 import Profile from './Profile';
 import CommnentList from './CommentList';
-import { CloseIcon } from '../Icons/icons';
-import { Link } from 'react-router-dom';
-import { routesConfig } from '@/config';
+import { CloseIcon, ShareMoreArrow } from '../Icons/icons';
 import PostComment from './PostComment';
 const cx = classNames.bind(styles);
 function Comment() {
+   const param = useParams();
+   const [data, setData] = useState({});
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const result = await fetch(`https://tiktok.fullstack.edu.vn/api/videos/${param.videoid}`);
+            const json = await result.json();
+            setData(json.data);
+         } catch (error) {
+            throw console.error(error);
+         }
+      };
+      fetchData();
+   }, [param.videoid]);
    return (
       <div className={cx('wrapper')}>
          <div className={cx('video-container')}>
@@ -19,20 +33,20 @@ function Comment() {
                <Search />
             </div>
             <div className={cx('video-background')}>
-               <Image
-                  src="https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/c599d52f8a9b4044aebccab0f482eada_1694011966?x-expires=1694790000&x-signature=r9Zpy%2BFeJnpLuZyI4q7sYb3ihhc%3D"
-                  className={cx('image')}
-               />
+               <Image src={data.thumb_url} className={cx('image')} />
             </div>
             <Link to={routesConfig.home} className={cx('close-icon')}>
                <CloseIcon fill="#fff" />
             </Link>
+            <button className={cx('more-content')}>
+               <ShareMoreArrow fill="rgb(255,255,255)" />
+            </button>
             <Video
                className={cx('video-content')}
                volumecontrol
                videocontrol
                playvideo
-               src={SummerRain}
+               src={data.file_url}
                VideoControlClasses={cx(
                   'containerClass',
                   'seekBarContainClass',
@@ -54,7 +68,7 @@ function Comment() {
          <div className={cx('commentList-wrapper')}>
             <div className={cx('commentList-container')}>
                <div className={cx('commentList-content')}>
-                  <Profile />
+                  <Profile data={data} />
                   <CommnentList />
                </div>
             </div>

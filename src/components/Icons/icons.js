@@ -530,7 +530,6 @@ export const ShareIcon = ({ width = '2.4rem', height = '2.4rem', className, fill
       ></path>
       <defs>
          <radialGradient
-            id="pc-share-44d9fe83_a"
             cx="0"
             cy="0"
             r="1"
@@ -808,13 +807,13 @@ export const CopyLinkIcon = ({ width = '2.6rem', height = '2.6rem', className })
       ></path>
    </svg>
 );
-export const ShareMoreArrow = ({ width = '2.4rem', height = '2.4rem', className }) => (
+export const ShareMoreArrow = ({ width = '2.4rem', height = '2.4rem', className, fill = 'currentColor' }) => (
    <svg
       className={className}
       width={width}
       height={height}
       viewBox="0 0 48 48"
-      fill="currentColor"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
    >
       <path

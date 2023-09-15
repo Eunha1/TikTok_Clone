@@ -25,7 +25,7 @@ function Reaction({ data }) {
    return (
       <div className={cx('reaction-element')}>
          <IconReaction icon={<HeartIcon />} activeIcon={<HeartActiveIcon />} reactionCount={data.likes_count} />
-         <Link to={routesConfig.comment}>
+         <Link to={routesConfig.commentLink(data)}>
             <IconReaction icon={<CommentIcon />} reactionCount={data.comments_count} />
          </Link>
          <IconReaction icon={<SaveIcon />} activeIcon={<SaveActiveIcon />} reactionCount={data.likes_count} />
