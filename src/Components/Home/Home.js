@@ -33,18 +33,17 @@ function Home() {
                <div className={cx('main-content')}>
                   <Info data={result} />
                   <div className={cx('video-content')}>
-                     <Link to={routesConfig.commentLink(result)}>
-                        <Video
-                           src={result.file_url}
-                           volumecontrol
-                           videocontrol
-                           playvideo
-                           VideoControlClasses={true}
-                           VolumeControlClasses={true}
-                           more
-                           className={cx('video-main')}
-                        />
-                     </Link>
+                     <Video
+                        src={result.file_url}
+                        volumecontrol
+                        videocontrol
+                        playvideo
+                        VideoControlClasses={true}
+                        VolumeControlClasses={true}
+                        more
+                        className={cx('video-main')}
+                     />
+
                      <Reaction data={result} />
                   </div>
                </div>

@@ -21,10 +21,7 @@ function CommnentList() {
          <div style={{ marginBottom: '20px' }}>
             <div className={cx('comment-container')}>
                <Link className={cx('image-link')}>
-                  <Image
-                     src="https://i.pinimg.com/originals/23/e9/4f/23e94f99116b0d9900eacc913f7d0742.jpg"
-                     className={cx('image')}
-                  />
+                  <Image src="" className={cx('image')} />
                </Link>
                <div style={{ flex: '1 1 auto' }}>
                   <Link className={cx('nickname')}>do quang phuc</Link>
