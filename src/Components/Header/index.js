@@ -33,7 +33,7 @@ import {
    RightArrowIcon,
    TopArrowIcon,
 } from '@/components/Icons/icons';
-
+import LogIn from '@/components/LogIn';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -68,7 +68,7 @@ const MENU_ITEMS = [
    },
 ];
 
-const currentUser = true;
+const currentUser = false;
 
 function Header() {
    const handelMenuChange = (menuIcon) => {
@@ -79,7 +79,7 @@ function Header() {
       {
          icon: <FontAwesomeIcon icon={faUser} />,
          title: 'View profile',
-         to: '/Eunha',
+         to: '/chauvuongvo',
       },
       {
          icon: <FontAwesomeIcon icon={faCoins} />,
@@ -167,7 +167,9 @@ function Header() {
                ) : (
                   <>
                      <Button text>Upload</Button>
-                     <Button primary>Log In</Button>
+                     <Link to={routesConfig.login}>
+                        <Button primary>Log In</Button>
+                     </Link>
                   </>
                )}
                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handelMenuChange}>

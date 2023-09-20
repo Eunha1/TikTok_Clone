@@ -8,7 +8,6 @@ function Button({
    primary = false,
    outline = false,
    text = false,
-   disable = false,
    rounded = false,
    small = false,
    large = false,
@@ -33,19 +32,11 @@ function Button({
       props.href = href;
       Comp = 'a';
    }
-   if (disable) {
-      Object.keys(props).forEach((key) => {
-         if (key.startsWith('on') && typeof props[key] === 'function') {
-            delete props[key];
-         }
-      });
-   }
    const classes = cx('wrapper', {
       primary,
       outline,
       outline_2,
       text,
-      disable,
       rounded,
       small,
       large,

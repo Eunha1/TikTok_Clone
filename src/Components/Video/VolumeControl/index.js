@@ -1,11 +1,11 @@
 import { useRef, forwardRef } from 'react';
 import { SoundOffIcon, SoundOnIcon } from '@/components/Icons/icons';
-import { useVolumeControl } from '@/hooks';
+import { HandleVolumeControl } from '../HandleVideo';
 function VolumeControl(props, ref) {
    const progressRef = useRef();
    const circleRef = useRef();
    const { videoRef } = props;
-   const [circlePosition, scale, isMuted, handleSound] = useVolumeControl(videoRef, progressRef, circleRef);
+   const [circlePosition, scale, isMuted, handleSound] = HandleVolumeControl(videoRef, progressRef, circleRef);
    const classNamesArray = props.className.split(' ');
    const extractedClassNames = classNamesArray.filter((className) => className.trim() !== '');
    const [

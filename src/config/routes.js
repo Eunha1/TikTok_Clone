@@ -9,6 +9,8 @@ const routes = {
    explore: '/explore',
    comment: '/:nickname/video/:videoid',
    commentLink: (content) => `/@${content.user.nickname}/video/${content.uuid}`,
+   login: '/login',
+   signup: '/signup',
 };
 
 export default routes;

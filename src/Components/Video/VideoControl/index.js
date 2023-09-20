@@ -1,10 +1,10 @@
 import { forwardRef, useRef } from 'react';
-import { useVideoControl } from '@/hooks';
+import { HandleVideoControl } from '../HandleVideo';
 function VideoControl(props, ref) {
    const seekCircle = useRef();
    const seekProgress = useRef();
    const { videoRef } = props;
-   const [circlePosition, timeLength, currentTime] = useVideoControl(videoRef, seekCircle, seekProgress);
+   const [circlePosition, timeLength, currentTime] = HandleVideoControl(videoRef, seekCircle, seekProgress);
    const classNamesArray = props.className.split(' ');
    const extractedClassNames = classNamesArray.filter((className) => className.trim() !== '');
    const [
